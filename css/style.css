@@ -1,7 +1,26 @@
+html {
+	font-family: sans-serif;
+	font-size: 16px;
+	font-style: normal;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	color: grey;
+	margin: 0;
+	padding: 0;
+}
+
 #wrapper {
 	display:flex;
 	z-index: 1;
 	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 #modal {
@@ -17,6 +36,13 @@
 	background-color: rgba(0,0,0,0.6);
 }
 
+#content {
+	display: block;
+	width: 100%;
+	overflow: auto;
+	margin-top: 6rem;
+}
+
 .modal-content {
 	background-color: white;
 	margin:10% auto;
@@ -30,38 +56,66 @@ iframe {
 	height: 100%;
 	margin: 0;
 }
-#header,
-#output,
-#footer {
-	display: block;
-	background-color:whitesmoke;
-/* 	clear:left;
-	clear:right; */
-	width: 100%;
-	overflow: auto;
-}
-#header-control {
-	display: block;
+
+#header {
+	position: fixed;
+	top: 0rem;
+	z-index: 1;
 	width:100%;
-	/* clear:left;
-	clear:right; */
-	background-color:whitesmoke;
-	margin-bottom:10px;
+	background-color: rgba(100%, 100%, 100%, 0.9);
+	padding-top: 1rem;
+
+}
+
+#header-logo {
+	object-fit:contain;
+	overflow:auto;
+	max-width:5rem;
+	max-height: 5rem;;
+}
+
+#search-ctrls {
+	margin-right: 2rem;
+	float: right;
+	padding: 0 2rem 0 0;
+
+}
+#header-logo {
+	float: left;
+	display: inline-block;
+}
+
+#output {
+	background-color:lightskyblue;
+	display: block;
+	width: 100%;
+	margin: auto;
+	overflow: auto;
 }
 
 .preview-section {
-	background-color:lightskyblue;
-	margin: 0px;
-	padding: 0px;
+	margin: 1rem 1rem;
+	padding: 1rem;
 }
 
 .preview-item {
-	padding:20px;
-	margin:10px;
+	padding:1.5rem;
+	margin:1rem;
 	min-width: 200px;
 	min-height: 40px;
 	background-color: whitesmoke;
 	overflow:auto;
+}
+
+#footer {
+	position: fixed;
+	bottom: 3;
+	font-size: 0.7rem;
+	text-align: center;
+	display: block;
+	width: 100%;
+	margin: auto;
+	overflow: auto;
 }
 
 h1 {
@@ -70,37 +124,46 @@ h1 {
 }
 
 .button,
-.input,
-.modal-control {
+.input {
+	height: 2rem;
 	background-color: lightskyblue;
+	font-size: .8rem;
 	color: #aaa;
-	float: left;
 	border-radius: 10px;
-	border-color:transparent;
+	border: none;
+	outline: none;
+	display: inline-block;
+	padding: 0.5rem;
+
 }
 
 .button:hover,
 .button:focus,
+.input:active,
 .input:hover,
 .input:focus {
-	color: black;
+	color: grey;
 	cursor: pointer;
-	border-color:transparent;
+	outline: none;
+	border-radius: 10px;
+	box-shadow: 1px 1px 2px 1px #c7c7c7;
 }
 
+
 .button {
-	font-size: 1.2rem;
 	font-weight: bold;
+	width : 2rem;
+	margin: 1rem 1rem 1rem 0.2rem;
 }
 
 .input {
-	font-size: 1rem;
+	margin: 1rem 0.2rem 1rem 1rem;
 }
 
 a {
 	text-decoration: none;
 }
 
-img {
-	object-fit: cover;
+.pad-1rem{
+	padding: 1rem;
 }

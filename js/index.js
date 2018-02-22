@@ -111,6 +111,20 @@ function wpAPI(){
 	}
 
 };
+var blankGlobe = true;
+document.getElementById("header-logo").onclick = function(){
+	var src;
+	if (blankGlobe){
+		src= "img/Wikipedia-Logo-Merged.png";
+		blankGlobe = false;
+	} else {
+		src= "img/Wikipedia-Logo-Blank-Globe.png";
+		blankGlobe = true;
+	}
+
+	document.getElementById("wikiLogo").setAttribute('src',src);
+};
+
 
 /* document.addEventListener("DOMContentLoaded",function(){
 	if (window.location.href.indexOf('#modal')!==-1){
