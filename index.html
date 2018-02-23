@@ -12,40 +12,40 @@
 
    <div id="wrapper">
 
-      <div id="modal">
 
-         <div class = "modal-header header">
-            <span id= "closeModal" class = "modal-control button">&times;</span>
+      <div id="header" class="header"><!-- * * * * * * HEADER * * * * * *-->
+
+         <div id="header-logo">
+            <img id= "wikiLogo" src="/Users/Loren/Sites/Wikipedia-Viewer/img/Wikipedia-Logo-Blank-Globe.png" title="Wikimedia Foundation, via Wikimedia Commons" alt="Wikipedia-logo-blank"/>
+         </div>
+         <div id="search-ctrls">
+            <input id=searchInput name="searchInput" class="search input" type="text" size = "20" action="submit" placeholder="enter search"/>
+            <button name="searchInput" class="search button" onclick="wpAPI()">go</button>
          </div>
 
-         <div class = "modal-content content" src="" frameborder="0">
-            <iframe id="wvFrame" src=""></iframe>
-         </div>
-
-         <div class="modal-footer footer"></div>
       </div>
 
-      <div id="content" class="pad-1rem">
+      <div id= "output" class='output'></div>
 
-         <div id="header" class="header">
-
-            <div id="header-logo">
-               <img id= "wikiLogo" src="/Users/Loren/Sites/Wikipedia-Viewer/img/Wikipedia-Logo-Blank-Globe.png" title="Wikimedia Foundation, via Wikimedia Commons" alt="Wikipedia-logo-blank"/>
-            </div>
-            <div id="search-ctrls">
-               <input id=searchInput name="searchInput" class="search input" type="text" size = "20" action="submit" placeholder="enter search"/>
-               <button name="searchInput" class="search button" onclick="wpAPI()">go</button>
-            </div>
-
-         </div>
-
-         <div id= "output" class='output'></div>
-
-         <div id="footer"><span>Loren McClaflin 2018</span></div>
-
+      <div id="footer"><!-- * * * * * * FOOTER * * * * * *-->
+         <span>Loren McClaflin 2018</span>
       </div>
+
 
    </div>
+
+   <div id="modal"><!-- * * * * * * MODAL * * * * * *-->
+
+      <div class = "modal-header header">
+         <span id= "closeModal" class = "modal-control button">&times;</span>
+      </div>
+
+      <div class = "modal-content content" src="" frameborder="0">
+         <iframe id="wvFrame" src=""></iframe>
+      </div>
+
+      <div class="modal-footer footer"></div>
+   </div>   <!-- * * * * * * MODAL * * * * * *-->
 
    <script src="js/index.js"></script>
 </body>

@@ -35,13 +35,8 @@ function newSection(data){ // creates a new ElementObject
 		p.setAttribute('href',url+'#modal');
 		p.setAttribute('name','p'+i);
 
-		p.onclick = modalUp;//function(x){
-			//console.log(x.caller);
-			// modal.style.display = 'block';
-			// document.getElementById('output').ch
-			// document.getElementById('wvFrame').src = p.href;//*[@id="output"]/div/div[1]/p
-
-	//	}
+		p.onclick = modalUp;
+		
 		console.log('addSource Fx url is: '+ url);
 
 		//p.preventDefault();//should 'p.' be 'this.' ?
