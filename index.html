@@ -12,18 +12,21 @@
 
    <div id="wrapper">
 
+      <div class="header-spacer header">
 
-      <div id="header" class="header"><!-- * * * * * * HEADER * * * * * *-->
+         <div id="header" class="header"><!-- * * * * * * HEADER * * * * * *-->
 
-         <div id="header-logo">
-            <img id= "wikiLogo" src="/Users/Loren/Sites/Wikipedia-Viewer/img/Wikipedia-Logo-Blank-Globe.png" title="Wikimedia Foundation, via Wikimedia Commons" alt="Wikipedia-logo-blank"/>
+            <div id="header-logo" class="header-elements">
+               <img id= "wikiLogo" src="/Users/Loren/Sites/Wikipedia-Viewer/img/Wikipedia-Logo-Blank-Globe.png" title="Wikimedia Foundation, via Wikimedia Commons" alt="Wikipedia-logo-blank"/>
+            </div>
+            <form id="search-ctrls" class = "header-elements zoomed" action="javascript:wpAPI()">
+               <input id=searchInput name="searchInput" class="search input" type="text" action="submit" placeholder="search"/>
+               <!-- <button name="searchInput" class="search button" onclick="wpAPI()">*</button> -->
+            </div>
+
          </div>
-         <div id="search-ctrls">
-            <input id=searchInput name="searchInput" class="search input" type="text" size = "20" action="submit" placeholder="enter search"/>
-            <button name="searchInput" class="search button" onclick="wpAPI()">go</button>
-         </div>
-
       </div>
+
 
       <div id= "output" class='output'></div>
 
