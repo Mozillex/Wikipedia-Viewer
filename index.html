@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <title>Wikipedia Viewer | Mozillex</title>
+   <meta charset="UTF-8"/>
+   <meta title="Wikipedia Viewer | Mozillex"/>
    <meta name="viewport" content="width=device-width, initial-scale=1"/>
    <link rel="stylesheet" href="css/style.css"/>
 </head>
@@ -12,23 +12,25 @@
 
    <div id="wrapper">
 
-      <div class="header-spacer header">
+      <div id="header"><!-- * * * * * * HEADER * * * * * *-->
 
-         <div id="header" class="header"><!-- * * * * * * HEADER * * * * * *-->
-
-            <div id="header-logo" class="header-elements">
-               <img id= "wikiLogo" src="/Users/Loren/Sites/Wikipedia-Viewer/img/Wikipedia-Logo-Blank-Globe.png" title="Wikimedia Foundation, via Wikimedia Commons" alt="Wikipedia-logo-blank"/>
-            </div>
-            <form id="search-ctrls" class = "header-elements zoomed" action="javascript:wpAPI()">
-               <input id=searchInput name="searchInput" class="search input" type="text" action="submit" placeholder="search"/>
-               <!-- <button name="searchInput" class="search button" onclick="wpAPI()">*</button> -->
-            </div>
-
+         <div id="header-logo">
+            <img id= "wikiLogo" src="img/Wikipedia-Logo-Merged.png" title="Click for a RANDOM Wikipedia Article!!" alt="Wikipedia-Logo"/>
          </div>
+
+         <div id="header-search">
+            <h1>WikiViewer</h1>
+            <form id="search-ctrls" action="javascript:wpAPI">
+               <input id=searchInput name="searchInput" placeholder="search"/ onfocus="globeToggle()">
+            </form>
+         </div>
+
       </div>
 
 
-      <div id= "output" class='output'></div>
+      <div id= "output">
+
+      </div>
 
       <div id="footer"><!-- * * * * * * FOOTER * * * * * *-->
          <span>Loren McClaflin 2018</span>
@@ -40,7 +42,7 @@
    <div id="modal"><!-- * * * * * * MODAL * * * * * *-->
 
       <div class = "modal-header header">
-         <span id= "closeModal" class = "modal-control button">&times;</span>
+         <span id= "closeModal" class = "button">&times;</span>
       </div>
 
       <div class = "modal-content content" src="" frameborder="0">

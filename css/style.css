@@ -3,25 +3,21 @@ html {
 	font-size: 16px;
 	font-style: normal;
 	box-sizing: border-box;
+	overflow:auto;
+	display:block;
 }
 
 *,*:before,*:after {
 	box-sizing: inherit;
+	overflow: inherit;
+	/* display:inherit; */
 }
 
-
-img {
-	max-width: 200px;
-	min-width: 100px;
-	max-height: 200px;
-	min-height: 100px;
-}
 
 body {
 	color: #474747;
 	margin: 0;
 	padding: 0;
-	overflow:auto;
 	height: 100vh;
 	max-height: 100%;
 	width: 100vw;
@@ -30,56 +26,65 @@ body {
 }
 
 #wrapper {
-	/* display:block; */
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	overflow: auto;
 }
 
-.header-spacer {
-	position: relative;
-	align-content: center;
-	justify-content: center;
-	min-height: 6rem;
-	z-index: 1;
-	overflow: auto;
-}
 
-.header {
+#header {
 	position: fixed;
-	display: block;
+	display: flex;
+	padding-left: 5%;
+	padding-right: 5%;
 	top: 0;
 	z-index: 1;
 	width:100%;
 	background-color: rgba(100%, 100%, 100%, 0.9);
 	text-align: center;
-	justify-content: center;
+	justify-content: space-around;
+	object-fit: scale-down;
 }
 
-.header-elements {
-	margin: 1rem;
+#header-logo,
+#header-search {
+	position:relative;
+	display: block;
+	background-color: transparent;
+	margin: auto;
+	text-align: center;
+	overflow:visible;
 }
+
+#header-logo {
+	max-width: 200px;
+	cursor: alias;
+}
+
+#header-search {
+	max-width: 400px;
+}
+
+
 
 #output {
-	display: block;
 	position: relative;
 	background-color:lightskyblue;
+	min-height:100vh;
 	display: block;
 	margin: 10rem 0 0 0;
+	behavior: smooth;
 }
 
 
 .preview-section {
-	display: block;
-	margin: 1rem auto;
-	padding: 4rem;
+	margin: auto auto;
+	padding: 0 4rem;
 	max-width: 800px;
 	border-radius: 7px;
 }
 
 .preview-item {
-	display: block;
 	padding:0.5rem 2.5rem;
 	margin:2rem;
 	min-width: 200px;
@@ -87,6 +92,7 @@ body {
 	background-color: whitesmoke;
 	box-shadow: 0 6px 20px 0 rgba(0,0,0,0.19);
 	border-radius: 7px;
+	overflow: hidden;
 
 }
 
@@ -102,7 +108,51 @@ body {
 	margin: 0;
 	padding: 5px 3% 5px 3%;
 }
-/*-- * * * * * * COMPONENTS and TEXT NODES * * * * * *--*/
+
+/*-- * * * * * * HIGHER SPECIFICITY * * * * * *--*/
+
+img {
+	padding: 1rem;
+	height: 150px;
+	width: 150px;
+	resize: both;
+	object-fit: contain;
+}
+
+input {
+	background-color: lightskyblue;
+	color: #ededed;
+	border : 1px solid transparent;
+	border-radius: 7px;
+	outline: none;
+	margin: 0.2rem;
+	padding: 2px 4px 2px 4px;
+	width: 80px;
+	font-size: 1rem;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+input:* {
+	color: #f1f1f1;
+	placeholder: #f1f1f1;
+	cursor: pointer;
+	outline: none;
+}
+
+
+input:focus {
+	width: 100%;
+	max-width: 400px;
+	font-size: 2.2rem;
+	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+}
+
+.button:hover {
+	cursor: pointer;
+	text-shadow: 0px 1px 7px rgba(30, 30, 30, 0.8);
+}
+
 #modal {
 	display : none;
 	position: fixed;
@@ -111,7 +161,7 @@ body {
 	top:0;
 	width: 100%;
 	height: 100%;
-	padding: 15%;
+	padding: 5%;
 	text-align: center;
 	overflow:hidden;
 	background-color: black;/* fallback color */
@@ -121,18 +171,17 @@ body {
 }
 
 .modal-header {
-	position: fixed;
-	font-size: 2rem;
-	font-weight: bold;
-	font-size: 1.3rem;
 	padding: 1px;
 	background-color: lightskyblue;
+	height: 1.5rem;
+	font-size: 1.5rem;font-weight: bold;
+	overflow: visible;
 }
 
-.modal-content {
+.modal-content,
+.modal-footer {
 	background-color: lightskyblue;
-	/* margin:auto; */
-	padding:3%;
+	padding:2%;
 	height : 100%;
 	overscroll-behavior: contain;
 }
@@ -146,54 +195,6 @@ iframe {
 	overscroll-behavior: contain;
 }
 
-.modal-footer {
-	background-color: lightskyblue;
-}
-
-h1 {
-	font-size : 2rem;
-	font-weight : bold;
-}
-
-.input {
-	display: inline;
-	background-color: lightskyblue;
-	color: #ededed;
-	border-radius: 7px;
-	border: 1px;
-	outline: none;
-	margin: 0.2rem;
-	padding: 0.2rem;
-	width: 100px;
-	font-size: 2rem;
-	border : transparent;
-	outline: none;
-	-webkit-transition: width 0.4s ease-in-out;
-	transition: width 0.4s ease-in-out;
-}
-
-.input:focus {
-	width: 100%;
-	max-width: 400px;
-}
-
-.button:focus {
-	box-shadow: 1px 1px 2px 1px #c7c7c7;
-}
-
-input:*,
-span.button:* {
-	color: #f1f1f1;
-	placeholder: #f1f1f1;
-	cursor: pointer;
-	outline: none;
-}
-
-
-.modal-header {
-	font-size: 1.2rem;
-}
-
 a {
 	text-decoration: none;
 }
@@ -201,4 +202,9 @@ a {
 p:hover {
 	cursor: alias;
 	color: #858585;
+}
+
+h1 {
+	font-size : 2rem;
+	font-weight : bold;
 }

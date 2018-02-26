@@ -2,24 +2,29 @@ var random = "https://en.wikipedia.org/wiki/Special:Random"; //random page sugge
 var input = document.querySelector("#searchInput");
 var output = document.querySelector("#output");
 var modal = document.getElementById('modal');
-//var modalLinks = {};
+var closeModal = document.getElementById('closeModal');
 
-function modalUp(e){
+
+function modalUp(e){//displays the modal, and sets it's source to the caller's (a p element created by newSection Fx) href value
 	e = e || window.event;
 	var target = e.target || e.srcElement;
 	modal.style.display = 'block';
 	document.getElementById('wvFrame').src = this.getAttribute('href');
 }
 
-document.getElementById('closeModal').onclick = function(){
+closeModal.onclick = function(){
 	modal.style.display = 'none';
-};
+}
+
+var addOn = false;
 
 function newSection(data){ // creates a new ElementObject
 
 	let section= document.createElement('div');
 	section.setAttribute('class','preview-section');
-	var i=0;;
+	var i=0;
+	globeToggle();
+
 	data.map(x=>{
 
 		let e = document.createElement('div');
@@ -32,31 +37,42 @@ function newSection(data){ // creates a new ElementObject
 		let p = document.createElement('p');
 		let url = data[i].fullurl;
 		p.textContent = data[i].extract;
-		p.setAttribute('href',url+'#modal');
+		p.setAttribute('href',url+'#modal');// this sets the href, which will be used by the modalUp Fx to display the modal
 		p.setAttribute('name','p'+i);
 
 		p.onclick = modalUp;
-		
-		console.log('addSource Fx url is: '+ url);
 
-		//p.preventDefault();//should 'p.' be 'this.' ?
 		e.appendChild(p);
 		section.appendChild(e);
 
 		i++;
 	});
+
 	let child = (output.firstChild);
 	output.insertBefore(section,child);
+	letterGlobe = true;
+
+	if (addOn){
+		output.scrollIntoView.behavior='smooth';
+		output.scrollIntoView();
+	}
+	// output.scrollIntoView(addOn);
+
+	addOn = true;
 }
 
-function wpAPI(){
 
-	var search = input.value;
-	console.log(search);
+
+var wpAPI = function wpAPI(){
+
+	let search = input.value;
+	input.value = '';
+
+	searchInput.blur();
+	letterGlobe = undefined;
 
 	if (!search){// if field is empty
-		alert("Please give me something I can search for.")
-		console.log("user entered no data");
+		alert("Please give me something I can search for.");
 		return;
 	}
 
@@ -101,31 +117,46 @@ function wpAPI(){
 	request.onload = function(){
 		let response = request.response;
 		let resultObj = response.query.pages;
-
-		newSection(resultObj);
+		letterGlobe = false;
+		newSection(resultObj);// * * * calls the function (newSection) to build the page with the reults * * *
 	}
-
-};
-var blankGlobe = true;
-document.getElementById("header-logo").onclick = function(){
-	var src;
-	if (blankGlobe){
-		src= "img/Wikipedia-Logo-Merged.png";
-		blankGlobe = false;
-	} else {
-		src= "img/Wikipedia-Logo-Blank-Globe.png";
-		blankGlobe = true;
-	}
-
-	document.getElementById("wikiLogo").setAttribute('src',src);
+//need to add in an error handler
 };
 
+var letterGlobe = true;
 
-/* document.addEventListener("DOMContentLoaded",function(){
-	if (window.location.href.indexOf('#modal')!==-1){
-		 document.getElementById('modal').setAttribute('display','block');
-		 }
-}); */
+var globeToggle = function globeToggle(){
+
+	let image;
+	let logo = document.getElementById("wikiLogo");
+
+	if (letterGlobe == undefined){
+	 	return;
+	 }
+
+	else if (letterGlobe){
+		image= "img/Wikipedia-Logo-Blank-Globe.png";
+		// letterGlobe = false;
+	} else if (!letterGlobe){
+		image= "img/Wikipedia-Logo-Merged.png";
+		// letterGlobe = true;
+	}
+	logo.setAttribute('src',image);
+	letterGlobe = undefined;
+}
+
+//document.getElementById("wikiLogo").onclick = globeToggle;
+document.getElementById("search-ctrls").onsubmit = wpAPI;
+
+document.getElementById("wikiLogo").onclick = function(){
+	modal.style.display = 'block';
+	wvFrame.src = random;
+}
+
+//document.getElementById('modal').style.display = block;//.setAttribute('display', 'block');
+//document.getElementById('wvFrame').src = random;
+
+
 /*
 	var createCallBack = function(x) {
 			var num = 1;
