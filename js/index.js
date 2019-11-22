@@ -145,16 +145,12 @@ var globeToggle = function globeToggle(){
 	letterGlobe = undefined;
 }
 
-//document.getElementById("wikiLogo").onclick = globeToggle;
 document.getElementById("search-ctrls").onsubmit = wpAPI;
 
 document.getElementById("wikiLogo").onclick = function(){
 	modal.style.display = 'block';
 	wvFrame.src = random;
 }
-
-//document.getElementById('modal').style.display = block;//.setAttribute('display', 'block');
-//document.getElementById('wvFrame').src = random;
 
 
 /*
