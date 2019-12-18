@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta title="Wikipedia Viewer | Mozillex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<head>
-   <meta charset="UTF-8"/>
-   <meta title="Wikipedia Viewer | Mozillex"/>
-   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-   <link rel="stylesheet" href="css/style.css"/>
-</head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <!-- * * * * * * HEADER * * * * * *-->
 
-<body>
+        <div id="header-logo">
+          <div class="tooltip">
+            <img
+              id="wikiLogo"
+              src="img/Wikipedia-Logo-Merged.png"
+              alt="Wikipedia-Logo"
+            />
+            <span class="tooltiptext">RaNdOm Article</span>
+          </div>
+        </div>
 
-   <div id="wrapper">
-
-      <div id="header"><!-- * * * * * * HEADER * * * * * *-->
-
-         <div id="header-logo">
-            <div class="tooltip">
-               <img id= "wikiLogo" src="img/Wikipedia-Logo-Merged.png" alt="Wikipedia-Logo"/>
-               <span class="tooltiptext">RaNdOm Article</span>
-				</div>
-         </div>
-
-         <div id="header-search">
-            <h1>WikiViewer</h1>
-            <form id="search-ctrls" action="javascript:wpAPI">
-               <input id=searchInput name="searchInput" placeholder="search"/ onfocus="globeToggle()">
-            </form>
-         </div>
-
+        <div id="header-search">
+          <h1>WikiViewer</h1>
+          <form id="search-ctrls" action="javascript:wpAPI">
+            <input id=searchInput name="searchInput" placeholder="search"/
+            onfocus="globeToggle()">
+          </form>
+        </div>
       </div>
 
+      <div id="clear" class="clear"></div>
 
-      <div id= "output">
+      <div id="output"></div>
 
+      <div id="footer">
+        <!-- * * * * * * FOOTER * * * * * *-->
+        <span>Loren McClaflin 2018</span>
+      </div>
+    </div>
+
+    <div id="modal">
+      <!-- * * * * * * MODAL * * * * * *-->
+
+      <div class="modal-header header">
+        <span id="closeModal" class="button">&times;</span>
       </div>
 
-      <div id="footer"><!-- * * * * * * FOOTER * * * * * *-->
-         <span>Loren McClaflin 2018</span>
-      </div>
-
-
-   </div>
-
-   <div id="modal"><!-- * * * * * * MODAL * * * * * *-->
-
-      <div class = "modal-header header">
-         <span id= "closeModal" class = "button">&times;</span>
-      </div>
-
-      <div class = "modal-content content" src="" frameborder="0">
-         <iframe id="wvFrame" src=""></iframe>
+      <div class="modal-content content" src="" frameborder="0">
+        <iframe id="wvFrame" src=""></iframe>
       </div>
 
       <div class="modal-footer footer"></div>
-   </div>   <!-- * * * * * * MODAL * * * * * *-->
+    </div>
+    <!-- * * * * * * MODAL * * * * * *-->
 
-   <script src="js/index.js"></script>
-</body>
-
+    <script src="js/index.js"></script>
+  </body>
 </html>
