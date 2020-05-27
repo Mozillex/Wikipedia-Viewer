@@ -139,11 +139,14 @@ input {
   transition: all 0.4s ease-in-out;
 }
 
-input:* {
+input: * {
   color: #f1f1f1;
-  placeholder: #f1f1f1;
   cursor: pointer;
   outline: none;
+}
+
+::placeholder {
+  color: #f1f1f1;
 }
 
 input:focus {
